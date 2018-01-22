@@ -56,7 +56,8 @@ export class Home implements OnInit {
         
     // },
     //     error => this.errorMessage = <any>error);
-
+    this.getPublishers()
+    
   }
 
   getPublishers() {
