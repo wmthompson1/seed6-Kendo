@@ -10,22 +10,22 @@ export class PublisherService {
 
     getAll() {
         return this.http.get(this.config.apiUrl +
-             '/publishers').map((response: Response) => response.json());
+             '/api/publishers').map((response: Response) => response.json());
     }
 
     getById(id: number) {
         return this.http.get(this.config.apiUrl +
-             '/publishers/' + id).map((response: Response) => response.json());
+             '/api/publishers/' + id).map((response: Response) => response.json());
     }
 
     create(publisher: Publisher) {
         return this.http.post(this.config.apiUrl + 
-            '/publishers', publisher);
+            '/api/publishers', publisher);
     }
 
     update(publisher: Publisher) {
         return this.http.put(this.config.apiUrl 
-            + '/publishers/' + publisher.id, publisher);
+            + '/api/publishers/' + publisher.id, publisher);
     }
 
     delete(id: number) {

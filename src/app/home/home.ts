@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Router } from '@angular/router';
 
 import { PublisherService } from '../services/publishers.service'
+import { Publisher } from '../models/publisher';
 
 @Component({
   selector: 'home',
@@ -10,12 +11,15 @@ import { PublisherService } from '../services/publishers.service'
   templateUrl: './home.html',
   providers: [PublisherService]
 })
-export class Home {
+
+export class Home implements OnInit {
   languages = ['English', 'Spanish', 'Other'];
   //model = new Employee('Darla', 'Smith');
   model: any = {};
   loading = false;
   hasPrimaryLanguageError = false;
+  publishers: Publisher[] = [];
+  errorMessage: string;
 
   constructor (
     private router: Router,
@@ -43,4 +47,27 @@ export class Home {
   //   else
   //     this.hasPrimaryLanguageError = false;
   // }
+
+  ngOnInit(): void {
+
+    // this.publisherService.getAll()
+    // .subscribe(publishers => {
+    //     this.publishers = publishers;
+        
+    // },
+    //     error => this.errorMessage = <any>error);
+
+  }
+
+  getPublishers() {
+
+    this.publisherService.getAll()
+   .subscribe(publishers => {
+       this.publishers = publishers;
+       
+   },
+       error => this.errorMessage = <any>error);
+
+  } //getPublishers
+
 }
