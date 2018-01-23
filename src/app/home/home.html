@@ -15,8 +15,9 @@
         <thead>
          <tr>
             <th>Id</th>
-            <th>Publisher Name</th>
-            <th>Year Established</th>
+            <th>Survey Name</th>
+            <th>Year</th>
+            <th></th>
             <th></th>
             <th></th>
          </tr>
@@ -39,18 +40,19 @@
                 </a>
             </td> -->
 
-            <td><a [routerLink]="['/formEdit',publisher.id]">
-                	<button type="button" class="btn btn-danger" 
-                    data-toggle="modal" data-target="#myModal">Delete
+            <td> <a [routerLink]="['/formEdit',publisher.id]">
+                Edit<span>&nbsp;</span><i class="fa fa-pencil"></i>
+                </a>
+            </td>
+            <td><a [routerLink]="['/formDelete',publisher.id]">
+                    <button type="button" 
+                    class="btn btn-sm btn-danger" >
+                        Delete
 	                </button>
                 </a>
             </td>
+            <td></td>
 
-
-            <td> <a [routerLink]="['/formEdit',publisher.id]">
-                Edit
-            </a>
-            </td>
          </tr>
          <tr>
             <td></td>
