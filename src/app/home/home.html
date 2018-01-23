@@ -12,7 +12,9 @@
          <tr *ngFor="let publisher of publishers">
             <td>{{ publisher.id}}</td>
           
-                    <td> <a [routerLink]="['/publishers',publisher.id]">{{publisher.name}}</a>
+                    <td> <a [routerLink]="['/formEdit',publisher.id]">
+                                {{publisher.name}}
+                        </a>
                     </td>
 
             

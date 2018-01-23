@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms'
   providers: [PublisherService]
 })
 
-export class FormAdd implements OnInit {
+export class FormEdit implements OnInit {
   languages = ['English', 'Spanish', 'Other'];
   //model = new Employee('Darla', 'Smith');
   model: any = {};
@@ -21,16 +21,17 @@ export class FormAdd implements OnInit {
   publishers: Publisher[] = [];
   errorMessage: string;
 
-  id: any[];
+  id: number;
 
 
   constructor (
+    private route: ActivatedRoute,  
     private router: Router,
     private publisherService: PublisherService,
 
   ) {
     this.id = this.route.snapshot.params['id']; 
-    this.getPublisher(id)
+    this.getPublisher(this.id)
   }
 
 
@@ -40,6 +41,17 @@ export class FormAdd implements OnInit {
 
   }
 
+  	//get one and only one record
+      getPublisher(id: number) {
+
+        this.publisherService.getById(id)
+       .subscribe(model => {
+           this.model = model;
+           
+       },
+           error => this.errorMessage = <any>error);
+    
+      } //getPublisher
 
 //   addNew() {
 //     this.loading = true;
@@ -64,5 +76,4 @@ export class FormAdd implements OnInit {
 //         })
 //     }
 
-}
 }

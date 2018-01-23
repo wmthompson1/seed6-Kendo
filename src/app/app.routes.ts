@@ -6,6 +6,7 @@ import {RepoBrowser} from './github/repo-browser/repo-browser';
 import {RepoList} from './github/repo-list/repo-list';
 import {RepoDetail} from './github/repo-detail/repo-detail';
 import { FormAdd } from './home/form-add';
+import { FormEdit } from './home/form-edit';
 
 export const rootRouterConfig: Routes = [
 
@@ -13,6 +14,7 @@ export const rootRouterConfig: Routes = [
     {path: 'home', component: Home},
     {path: 'master', component: Master},
     {path: 'formAdd', component: FormAdd},
+    {path: 'formEdit/:id', component: FormEdit},
     {path: 'about', component: About},
     {path: '**', component: Home},
     // {path: 'github', component: RepoBrowser,
