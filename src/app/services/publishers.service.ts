@@ -30,10 +30,19 @@ export class PublisherService {
             + '/api/publishers/' + publisher.id, publisher);
     }
 
-    delete(id: string)    {
-        return this.http.delete(this.config.apiUrl  + 'api/publishers/' + id );
+    //v1 here:
+    // delete(id: number)    {
+    //     console.log( this.config.apiUrl  + '/api/publishers/' + id );
+    //     return this.http.delete(this.config.apiUrl  + '/api/publishers/' + id );
 
-       }
+    //    }
+
+    //v2 here
+
+    delete(publisher: Publisher) {
+        return this.http.delete(this.config.apiUrl 
+            + '/api/publishers/' + publisher.id );  //, publisher);
+    }
 
     // // private helper methods
 

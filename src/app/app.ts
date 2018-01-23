@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
                     <li><a [routerLink]="['/welcome']">Home</a></li>
                     <li><a [routerLink]="['/formAdd']">Add Form</a></li>
                     <li><a [routerLink]="['/home']">Forms</a></li>
+                    <li><a [routerLink]="['/formDelete/:id']">Delete Form</a></li>
                 </ul>
             </div>
         </nav>

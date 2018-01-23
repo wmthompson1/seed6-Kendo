@@ -17,11 +17,11 @@ import { PublisherService } from './services/publishers.service'
 import { AppConfig } from './app.config'
 import { FormAdd } from './home/form-add';
 import { FormEdit } from './home/form-edit';
-
+import { FormDelete } from './home/form-delete';
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser 
-        , RepoList, RepoDetail, Home, Master, FormAdd, FormEdit],
+        , RepoList, RepoDetail, Home, Master, FormAdd, FormEdit, FormDelete],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
   providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy},PublisherService, AppConfig],
   bootstrap   : [AppComponent]

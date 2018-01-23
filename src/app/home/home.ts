@@ -61,14 +61,14 @@ export class Home implements OnInit {
 
   } //getPublishers
 
-   onDelete(id: number) {
-     let str: string = id.toString()
-    if (confirm('Are you sure to delete this record ? ' + str) == true) {
-      this.publisherService.delete(str)
-      this.router.navigate(['/login']);
+  //  onDelete(id: number) {
 
-      }
-    } 
+  //   if (confirm('Are you sure to delete this record ? ' ) == true) {
+  //     this.publisherService.delete(id)
+  //     this.router.navigate(['/login']);
+
+  //     }
+  //   } 
 
 
 //  onSubmit(form: NgForm) {
