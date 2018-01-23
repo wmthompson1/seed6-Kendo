@@ -11,7 +11,11 @@
         <tbody>
          <tr *ngFor="let publisher of publishers">
             <td>{{ publisher.id}}</td>
-            <td>{{ publisher.name}}</td>
+          
+                    <td> <a [routerLink]="['/publishers',publisher.id]">{{publisher.name}}</a>
+                    </td>
+
+            
             <td>{{ publisher.established}}</td>
              <td></td>
          </tr>
@@ -73,4 +77,3 @@
     </form>
 
 </div>
-

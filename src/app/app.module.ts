@@ -8,15 +8,18 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
 import {About} from './about/about';
 import {Home} from './home/home';
+import {Master} from './home/master';
 import {RepoBrowser} from './github/repo-browser/repo-browser';
 import {RepoList} from './github/repo-list/repo-list';
 import {RepoDetail} from './github/repo-detail/repo-detail';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { PublisherService } from './services/publishers.service'
 import { AppConfig } from './app.config'
+import { FormAdd } from './home/form-add';
+
 
 @NgModule({
-  declarations: [AppComponent, About, RepoBrowser, RepoList, RepoDetail, Home],
+  declarations: [AppComponent, About, RepoBrowser, RepoList, RepoDetail, Home, Master, FormAdd],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
   providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy},PublisherService, AppConfig],
   bootstrap   : [AppComponent]

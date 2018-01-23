@@ -7,13 +7,13 @@ import { Publisher } from '../models/publisher';
 import { NgForm } from '@angular/forms'
 
 @Component({
-  selector: 'home',
-  styleUrls: ['./home.css'],
-  templateUrl: './home.html',
+  selector: 'form-add',
+  styleUrls: ['./form-add.css'],
+  templateUrl: './form-add.html',
   providers: [PublisherService]
 })
 
-export class Home implements OnInit {
+export class FormAdd implements OnInit {
   languages = ['English', 'Spanish', 'Other'];
   //model = new Employee('Darla', 'Smith');
   model: any = {};
@@ -30,36 +30,24 @@ export class Home implements OnInit {
    
   }
 
-  getData() {
+
+
+  ngOnInit(): void {
+    
+  }
+
+
+  addNew() {
     this.loading = true;
     this.publisherService.create(this.model)
         .subscribe(
             data => {
-                this.router.navigate(['/login']);
+               this.router.navigate(['/login']);
             },
             error => {
                 this.loading = false;
             });
 }
-
-
-  ngOnInit(): void {
-
-
-    this.getPublishers()
-    
-  }
-
-  getPublishers() {
-
-    this.publisherService.getAll()
-   .subscribe(publishers => {
-       this.publishers = publishers;
-       
-   },
-       error => this.errorMessage = <any>error);
-
-  } //getPublishers
   
 //  onSubmit(form: NgForm) {
 //     if (1 == 1) {
