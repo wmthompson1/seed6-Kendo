@@ -34,22 +34,23 @@
             
             <td>{{ publisher.established}}</td>
 
-            <td> <a [routerLink]="['/formDelete',publisher.id]">
-                Delete {{publisher.name}}
+            <!-- <td> <a [routerLink]="['/formDelete',publisher.id]">
+                {{publisher.name}}
+                </a>
+            </td> -->
+
+            <td><a [routerLink]="['/formEdit',publisher.id]">
+                	<button type="button" class="btn btn-danger" 
+                    data-toggle="modal" data-target="#myModal">Delete
+	                </button>
                 </a>
             </td>
 
-            <td>
-                	<button type="button" class="btn btn-danger" 
-                        data-toggle="modal" data-target="#myModal">Open Modal
-	                </button>
 
-
-                
+            <td> <a [routerLink]="['/formEdit',publisher.id]">
+                Edit
+            </a>
             </td>
-
-
-            <td></td>
          </tr>
          <tr>
             <td></td>

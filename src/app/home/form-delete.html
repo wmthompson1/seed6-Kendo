@@ -2,7 +2,7 @@
         <ng-container>
        <div class="col-md-6 col-md-offset-3">
            <h2>Delete Existing Record</h2>
-           <form name="form" (ngSubmit)="f.form.valid && editExisting(form)" #f="ngForm" 
+           <form name="form" (ngSubmit)="f.form.valid && deleteExisting(form)" #f="ngForm" 
                    novalidate>
                <div class="form-group" [ngClass]="{ 'has-error': f.submitted 
                            && !name.valid }">
