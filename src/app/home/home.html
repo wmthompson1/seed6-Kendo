@@ -1,11 +1,14 @@
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <div class="container">
     <table class = "table table-bordered table-striped table-hover">
         <thead>
          <tr>
-            <th>f1</th>
-            <th>f2</th>
-            <th>f3</th>
+            <th>Id</th>
+            <th>Publisher Name</th>
+            <th>Year Established</th>
+            <th></th>
+            <th></th>
          </tr>
         </thead>
         <tbody>
@@ -19,6 +22,11 @@
 
             
             <td>{{ publisher.established}}</td>
+             <td>
+                    <a class="btn text-danger" (click)="onDelete(publisher.id)">
+                            <i class="fa fa-trash-o"></i>
+                          </a>
+             </td>
              <td></td>
          </tr>
          <tr>
@@ -33,7 +41,7 @@
 </div>
 
 <div class="container">
-    <h3>Employee Form.20180121.1635</h3>
+    <h3>Main Form.20180121.1635</h3>
     <form #form="ngForm" novalidate>
         <div class="form-group">
             <label>Publisher Name</label>

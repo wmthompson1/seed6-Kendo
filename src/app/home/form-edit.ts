@@ -65,15 +65,16 @@ export class FormEdit implements OnInit {
 //             });
 //     }
   
-//  onSubmit(form: NgForm) {
-//     if (1 == 1) {
-//      // this.employeeService.postEmployee(form.value)
-//       this.publisherService.create(form.value)
-//         .subscribe(data => {
-//           // this.resetForm(form);
-//           //this.employeeService.getEmployeeList();
-//           //this.toastr.success('New Record Added Succcessfully', 'Employee Register');
-//         })
-//     }
+  editExisting() {
+    this.loading = true;
+    this.publisherService.update(this.model)
+        .subscribe(
+            data => {
+               this.router.navigate(['/login']);
+            },
+            error => {
+                this.loading = false;
+            });
+    }
 
 }

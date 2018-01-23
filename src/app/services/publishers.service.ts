@@ -4,6 +4,8 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { AppConfig } from '../app.config';
 import { Publisher } from '../models/Publisher';
 
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class PublisherService {
     constructor(private http: Http, private config: AppConfig) { }
@@ -28,9 +30,10 @@ export class PublisherService {
             + '/api/publishers/' + publisher.id, publisher);
     }
 
-    delete(id: number) {
-        return this.http.delete(this.config.apiUrl + '/publishers/' + id);
-    }
+    delete(id: string)    {
+        return this.http.delete(this.config.apiUrl  + 'api/publishers/' + id );
+
+       }
 
     // // private helper methods
 

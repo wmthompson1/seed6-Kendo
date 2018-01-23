@@ -60,7 +60,17 @@ export class Home implements OnInit {
        error => this.errorMessage = <any>error);
 
   } //getPublishers
-  
+
+   onDelete(id: number) {
+     let str: string = id.toString()
+    if (confirm('Are you sure to delete this record ? ' + str) == true) {
+      this.publisherService.delete(str)
+      this.router.navigate(['/login']);
+
+      }
+    } 
+
+
 //  onSubmit(form: NgForm) {
 //     if (1 == 1) {
 //      // this.employeeService.postEmployee(form.value)
