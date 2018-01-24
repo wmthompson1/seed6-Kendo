@@ -1,4 +1,6 @@
-# Seed1
+# Seed3 
+I copied from Seed1 as I needed a consistent dev env
+Credit is entirely to the creator of Seed1 and not me.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
