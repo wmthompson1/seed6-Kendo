@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
                 <a class='navbar-brand'>{{pageTitle}}</a>
                 <ul class='nav navbar-nav'>
                     <li><a [routerLink]="['/welcome']">Home</a></li>
+                    <li><a [routerLink]="['/surveys']">Survey Test</a></li>
                     <li><a [routerLink]="['/home']">Forms Main Edit</a></li>
                     <li><a [routerLink]="['/formAdd']">Adds Form</a></li>
                    

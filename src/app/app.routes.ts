@@ -8,6 +8,7 @@ import {RepoDetail} from './github/repo-detail/repo-detail';
 import { FormAdd } from './home/form-add';
 import { FormEdit } from './home/form-edit';
 import { FormDelete } from './home/form-delete';
+//import { SurveyRenderComponent } from './home/survey-render.component'
 
 export const rootRouterConfig: Routes = [
 
@@ -17,6 +18,7 @@ export const rootRouterConfig: Routes = [
     {path: 'formAdd', component: FormAdd},
     {path: 'formEdit/:id', component: FormEdit},
     {path: 'formDelete/:id', component: FormDelete},
+//    {path: 'surveys', component: SurveyRenderComponent},
     {path: 'about', component: About},
     {path: '**', component: Home},
     // {path: 'github', component: RepoBrowser,
