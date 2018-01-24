@@ -16,24 +16,33 @@
          <tr>
             <th>Id</th>
             <th>Survey Name</th>
-            <th>Year</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Leaver Year</th>
+            <th>Open Date</th>
+            <th>Close Date</th>
+
+            <th>School Year</th>
+            <th>Locked</th>
          </tr>
         </thead>
         <tbody>
          <ng-container>
          <tr *ngFor="let survey of surveys">
-            <td>{{ survey.id}}</td>
-          
-            
-            <td> <a [routerLink]="['/formEdit',survey.id]">
-                        {{survey.name}}
-                </a>
+            <td class="text-muted">{{survey.id}}</td>
+            <td>{{survey.name}}</td>
+            <td>{{ survey.leaverYear}}</td>
+            <td>{{survey.openDate | date: "yyyy-MM-dd"}}</td>
+            <td>{{survey.closeDate | date: "yyyy-MM-dd"}}</td>
+
+            <td>{{survey.schoolYear}}</td>
+            <td>
+                <!-- <input type =  "checkbox" disabled name="isLocked" ngModel
+                {{survey.isLocked}}> -->
+
+                <input type="checkbox" name="tc"
+                         disabled
+                         [ngModel]="survey.isLocked" >
+
             </td>
-            
-            <td>{{ survey.established}}</td>
 
             <!-- <td> <a [routerLink]="['/formDelete',survey.id]">
                 {{survey.name}}

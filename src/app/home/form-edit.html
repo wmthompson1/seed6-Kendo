@@ -9,7 +9,7 @@
                     </div>
     
         <div class="col-md-12" style="border-bottom: 1px solid black; border-top: 1px solid black; text-align: center; margin-bottom: 25px;">
-                <h2> Test Form</h2>
+                <h2>Edit Existing Record</h2>
          </div>               
          <table class="table table-striped table-bordered table-hover" style="margin: auto;">
             <thead>
@@ -23,8 +23,9 @@
     <div class="container">
             <ng-container>
            <div class="col-md-6 col-md-offset-3">
-               <h2>Edit Existing Record</h2>
-               <form name="form" (ngSubmit)="f.form.valid && editExisting(form)" #f="ngForm" 
+               <h2></h2>
+               <form name="form" (ngSubmit)="f.form.valid && editExisting(form)" 
+                    #f="ngForm" 
                        novalidate>
                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted 
                                && !name.valid }">
@@ -35,14 +36,79 @@
                                class="help-block">Name is required</div>
                    </div>
                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted 
-                               && !established.valid }">
-                       <label for="established">Year</label>
-                       <input type="text" class="form-control" name="established"
-                                [(ngModel)]="model.established" #established="ngModel"
+                               && !leaverYear.valid }">
+                       <label for="leaverYear">Leaver Year</label>
+                       <input type="text" class="form-control" name="leaverYear"
+                                [(ngModel)]="model.leaverYear" #established="ngModel"
                                  required />
-                       <div *ngIf="f.submitted && !established.valid" 
-                               class="help-block">Year established is required</div>
+                       <div *ngIf="f.submitted && !leaverYear.valid" 
+                               class="help-block">Leaver Year is required</div>
                    </div>
+
+ <!-- [ngClass]="{ 'has-error': f.submitted && !description.valid }" -->
+                   <div class="form-group" >
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" name="description"
+                    [(ngModel)]="model.description" #description="ngModel"
+                         />
+
+                    </div>
+     <!-- [ngClass]="{ 'has-error': f.submitted && !surveyTypeCode.valid }"                     -->
+                    <div class="form-group" >
+                    <label for="surveyTypeCode">Survey Type</label>
+                    <input type="text" class="form-control" name="surveyTypeCode"
+                    [(ngModel)]="model.surveyTypeCode" #surveyTypeCode="ngModel"
+                     />
+
+                    </div>
+
+<!-- [ngClass]="{ 'has-error': f.submitted && !instructions.valid }"                     -->
+                    <div class="form-group" >
+                    <label for="instructions">Instructions</label>
+                    <input type="text" class="form-control" name="instructions"
+                    [(ngModel)]="model.instructions" #instructions="ngModel"
+                     />
+
+                    </div>
+
+                    
+                    <div class="form-check" [ngClass]="{ 'has-error': f.submitted 
+                    && !isLocked.valid }">
+                    <label for="isLocked">Locked</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="isLocked"
+                    [(ngModel)]="model.isLocked" #isLocked="ngModel"
+                     />
+
+                    </div>
+
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted 
+                    && !closeDate.valid }">
+                    <label for="closeDate">Close Date</label>
+
+                    <input type="text" class="form-control" name="closeDate"
+                    [(ngModel)]="model.closeDate" #closeDate="ngModel"
+                     />
+
+                    </div>
+
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted 
+                    && !createDate.valid }">
+                    <label for="createDate">Create Date</label>
+
+                    <!-- <input type="text" class="form-control" name="createDate"
+                    [(ngModel)]="model.createDate " #createDate="ngModel" -->
+
+                        <input type="date" class="form-control" id="createDate" 
+                        [ngModel]="createDate | date:'yyyy-MM-dd'" 
+                        (ngModelChange)="createDate = $event" name="createDate"/>
+
+                     
+
+                    </div>
+
+
+                   
                    <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                        <label for="username">Username</label>
                        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" 
