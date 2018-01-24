@@ -24,27 +24,27 @@
         </thead>
         <tbody>
          <ng-container>
-         <tr *ngFor="let publisher of publishers">
-            <td>{{ publisher.id}}</td>
+         <tr *ngFor="let survey of surveys">
+            <td>{{ survey.id}}</td>
           
             
-            <td> <a [routerLink]="['/formEdit',publisher.id]">
-                        {{publisher.name}}
+            <td> <a [routerLink]="['/formEdit',survey.id]">
+                        {{survey.name}}
                 </a>
             </td>
             
-            <td>{{ publisher.established}}</td>
+            <td>{{ survey.established}}</td>
 
-            <!-- <td> <a [routerLink]="['/formDelete',publisher.id]">
-                {{publisher.name}}
+            <!-- <td> <a [routerLink]="['/formDelete',survey.id]">
+                {{survey.name}}
                 </a>
             </td> -->
 
-            <td> <a [routerLink]="['/formEdit',publisher.id]">
+            <td> <a [routerLink]="['/formEdit',survey.id]">
                 Edit<span>&nbsp;</span><i class="fa fa-pencil"></i>
                 </a>
             </td>
-            <td><a [routerLink]="['/formDelete',publisher.id]">
+            <td><a [routerLink]="['/formDelete',survey.id]">
                     <button type="button" 
                     class="btn btn-sm btn-danger" >
                         Delete

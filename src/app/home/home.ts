@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Router } from '@angular/router';
 
-import { PublisherService } from '../services/publishers.service'
-import { Publisher } from '../models/publisher';
+//import { PublisherService } from '../services/publishers.service'
+import { SurveyService } from '../services/surveys.service'
+
+import { ISurvey } from '../models/survey';
 import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'home',
   styleUrls: ['./home.css'],
   templateUrl: './home.html',
-  providers: [PublisherService]
+  providers: [SurveyService]
 })
 
 export class Home implements OnInit {
@@ -19,12 +21,12 @@ export class Home implements OnInit {
   model: any = {};
   loading = false;
   hasPrimaryLanguageError = false;
-  publishers: Publisher[] = [];
+  surveys: ISurvey[] = [];
   errorMessage: string;
 
   constructor (
     private router: Router,
-    private publisherService: PublisherService,
+    private surveyService: SurveyService,
 
   ) {
    
@@ -32,7 +34,7 @@ export class Home implements OnInit {
 
   getData() {
     this.loading = true;
-    this.publisherService.create(this.model)
+    this.surveyService.create(this.model)
         .subscribe(
             data => {
                 this.router.navigate(['/login']);
@@ -46,25 +48,25 @@ export class Home implements OnInit {
   ngOnInit(): void {
 
 
-    this.getPublishers()
+    this.getSurveys()
     
   }
 
-  getPublishers() {
+  getSurveys() {
 
-    this.publisherService.getAll()
-   .subscribe(publishers => {
-       this.publishers = publishers;
+    this.surveyService.getAll()
+   .subscribe(surveys => {
+       this.surveys = surveys;
        
    },
        error => this.errorMessage = <any>error);
 
-  } //getPublishers
+  } //getSurveys
 
   //  onDelete(id: number) {
 
   //   if (confirm('Are you sure to delete this record ? ' ) == true) {
-  //     this.publisherService.delete(id)
+  //     this.surveyService.delete(id)
   //     this.router.navigate(['/login']);
 
   //     }
@@ -74,7 +76,7 @@ export class Home implements OnInit {
 //  onSubmit(form: NgForm) {
 //     if (1 == 1) {
 //      // this.employeeService.postEmployee(form.value)
-//       this.publisherService.create(form.value)
+//       this.surveyService.create(form.value)
 //         .subscribe(data => {
 //           // this.resetForm(form);
 //           //this.employeeService.getEmployeeList();

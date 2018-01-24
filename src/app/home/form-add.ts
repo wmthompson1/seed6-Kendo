@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Router } from '@angular/router';
 
-import { PublisherService } from '../services/publishers.service'
-import { Publisher } from '../models/publisher';
+//import { PublisherService } from '../services/publishers.service'
+import { SurveyService } from '../services/surveys.service'
+
+import { ISurvey } from '../models/survey';
 import { NgForm } from '@angular/forms'
+
 
 @Component({
   selector: 'form-add',
   styleUrls: ['./form-add.css'],
   templateUrl: './form-add.html',
-  providers: [PublisherService]
+  providers: [SurveyService]
 })
 
 export class FormAdd implements OnInit {
@@ -19,12 +22,12 @@ export class FormAdd implements OnInit {
   model: any = {};
   loading = false;
   hasPrimaryLanguageError = false;
-  publishers: Publisher[] = [];
+  surveys: ISurvey[] = [];
   errorMessage: string;
 
   constructor (
     private router: Router,
-    private publisherService: PublisherService,
+    private surveyService: SurveyService,
 
   ) {
    
@@ -39,7 +42,7 @@ export class FormAdd implements OnInit {
 
   addNew() {
     this.loading = true;
-    this.publisherService.create(this.model)
+    this.surveyService.create(this.model)
         .subscribe(
             data => {
                this.router.navigate(['/login']);
@@ -52,7 +55,7 @@ export class FormAdd implements OnInit {
 //  onSubmit(form: NgForm) {
 //     if (1 == 1) {
 //      // this.employeeService.postEmployee(form.value)
-//       this.publisherService.create(form.value)
+//       this.surveyService.create(form.value)
 //         .subscribe(data => {
 //           // this.resetForm(form);
 //           //this.employeeService.getEmployeeList();

@@ -18,12 +18,18 @@ import { AppConfig } from './app.config'
 import { FormAdd } from './home/form-add';
 import { FormEdit } from './home/form-edit';
 import { FormDelete } from './home/form-delete';
+import { ManageSurveyComponent } from './home/manage-survey.component';
+import { SurveyService } from './services/surveys.service'
+import { SurveyRenderComponent } from './home/survey-render.component'
+import { TsfFooterComponent } from './home/tsf-footer.component'
+ 
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser 
-        , RepoList, RepoDetail, Home, Master, FormAdd, FormEdit, FormDelete],
+        , RepoList, RepoDetail, Home, Master, FormAdd, FormEdit, FormDelete,ManageSurveyComponent,TsfFooterComponent],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
-  providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy},PublisherService, AppConfig],
+  providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy}
+	,PublisherService, AppConfig, PublisherService],
   bootstrap   : [AppComponent]
 })
 export class AppModule {

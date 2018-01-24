@@ -6,6 +6,7 @@ import { ISurvey } from "../models/survey"
 //import { DistrictSummary } from "./DistrictSummary";
 //import { ReportsService } from "../reports/reports.service";
 
+
 /**************************************************************************************
 PURPOSE:    
 
@@ -18,13 +19,13 @@ William Thompson	01/10/2018	Created. Based on/copied from existing district list
 **************************************************************************************/
 
 @Component({
-    selector: "manage-survey",
-    templateUrl: "../home/manage-survey.component.html",
+    selector: "survey-render",
+    templateUrl: "../home/survey-render.component.html",
     styleUrls: ["../home/survey-render.component.css"],
     providers: [AdminService],
     encapsulation: ViewEncapsulation.None
 })
-export class ManageSurveyComponent implements OnInit {
+export class SurveyRenderComponent implements OnInit {
 
     //districts: Array<DistrictSummary> = [] as Array<DistrictSummary>;
     surveys: Array<ISurvey> = [] as Array<ISurvey>;
@@ -36,82 +37,30 @@ export class ManageSurveyComponent implements OnInit {
     //agencyId: string;
     id: number;
     errorMessage: string;
-
+    
     //constructor(private route: ActivatedRoute, private psService: PsService, private router: Router, private reportsService: ReportsService) {
-    //this.AgencyName = "CCTS";
-    //this.leaverYear = this.route.snapshot.params['schoolYear'];
-    //this.agencyId = this.route.snapshot.params['agencyId'];
+        //this.AgencyName = "CCTS";
+        //this.leaverYear = this.route.snapshot.params['schoolYear'];
+        //this.agencyId = this.route.snapshot.params['agencyId'];
     //}
 
     constructor(private route: ActivatedRoute, private adminService: AdminService, private router: Router) {
-         this.id = this.route.snapshot.params['id'];
-
+       // this.id = this.route.snapshot.params['id'];
+ 
         this.getData();
     }
 
 
     getData(): void {
         this.adminService
-            .getSurvey(this.id)
-            .subscribe(result => {
-                this.surveys = result;
-            },
-            error => this.errorMessage = <any>error);
+            .getSurveys()
+                .subscribe(result => {
+                    this.surveys = result;
+                },
+                error => this.errorMessage = <any>error);
     }
     totalCount: number = this.surveys.length;
-    statusValue: number = 0
-
-
-
-    ngOnInit() {
-
-        this.adminService
-            .getSurvey(this.id)
-            .subscribe(result => {
-                this.surveys = result;
-            },
-            error => this.errorMessage = <any>error);
-    }
-}
-
-    //getstatusValue(progress: number): number {
-    //    var progressString = (progress * 100.00).toFixed(0);
-    //    return +progressString;
-    //}
-
-
-
-    //getPercent(total: number): number {
-    //    var newTotal = (total * 100).toFixed(2);
-    //    return +newTotal;
-    //}
-
-    //navigateToSSID(ssid: string) {
-    //    this.router.navigate(['/ps-students-list', 0, this.leaverYear, ssid, 0]);
-    //}
-
-    //async doSSIDSearch(ssid: string) {
-    //    this.psService
-    //        .doSSIDSearch(ssid, this.email, this.leaverYear, +'-1')
-    //        .subscribe(res => {
-    //            this.router.navigate(['/ps-students-list/', res.SchoolId, this.leaverYear, ssid]);
-    //        });
-
-
-    //}
-
-    //getContactRateReport() {
-    //    let fileName: string = this.AgencyName + "-Indicator14-Extract.xlsx";
-
-    //    this.reportsService
-    //        .getPostSchoolContactReport(this.agencyId, this.leaverYear, this.AgencyName)
-    //        .subscribe(blob => {
-    //            var link: any = document.createElement('a');
-    //            link.href = window.URL.createObjectURL(blob);
-    //            link.download = fileName;
-    //            link.click();
-    //        });
-    //}
+    statusValue:  number = 0
 
     //getmyStyles(): any  {
     //   // this.totalCount = this.surveys.length;
@@ -151,4 +100,54 @@ export class ManageSurveyComponent implements OnInit {
     //    }
 
     //    return myStyles
+    //}
+
+    ngOnInit() {
+       // this.id = null
+            this.adminService
+                .getSurveys()
+                .subscribe(result => {
+                        this.surveys = result;
+                    },
+                        error => this.errorMessage = <any>error);
+                }
+    }
+
+    //getstatusValue(progress: number): number {
+    //    var progressString = (progress * 100.00).toFixed(0);
+    //    return +progressString;
+    //}
+
+
+
+    //getPercent(total: number): number {
+    //    var newTotal = (total * 100).toFixed(2);
+    //    return +newTotal;
+    //}
+
+    //navigateToSSID(ssid: string) {
+    //    this.router.navigate(['/ps-students-list', 0, this.leaverYear, ssid, 0]);
+    //}
+
+    //async doSSIDSearch(ssid: string) {
+    //    this.psService
+    //        .doSSIDSearch(ssid, this.email, this.leaverYear, +'-1')
+    //        .subscribe(res => {
+    //            this.router.navigate(['/ps-students-list/', res.SchoolId, this.leaverYear, ssid]);
+    //        });
+        
+            
+    //}
+
+    //getContactRateReport() {
+    //    let fileName: string = this.AgencyName + "-Indicator14-Extract.xlsx";
+
+    //    this.reportsService
+    //        .getPostSchoolContactReport(this.agencyId, this.leaverYear, this.AgencyName)
+    //        .subscribe(blob => {
+    //            var link: any = document.createElement('a');
+    //            link.href = window.URL.createObjectURL(blob);
+    //            link.download = fileName;
+    //            link.click();
+    //        });
     //}

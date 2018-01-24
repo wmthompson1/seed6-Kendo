@@ -2,14 +2,15 @@
 import { Http, Headers, Response, RequestOptions, RequestMethod} from "@angular/http";
 import {Router} from "@angular/router";
 import {Observable, BehaviorSubject} from "rxjs/Rx";
-import { StateTarget } from "./StateTarget";
-import {Import} from "./import";
-import { ImportError } from "./ImportError";
-import { ImportRowDetail } from "./ImportRowDetail";
-import { agencySummary } from "./agencySummary";
-import { UserListItem } from "./UserListItem";
-import { GridDataResult } from "@progress/kendo-angular-grid";
-import { ISurvey } from './survey'
+// import { StateTarget } from "./StateTarget";
+// import {Import} from "./import";
+// import { ImportError } from "./ImportError";
+// import { ImportRowDetail } from "./ImportRowDetail";
+// import { agencySummary } from "./agencySummary";
+// import { UserListItem } from "./UserListItem";
+// import { GridDataResult } from "@progress/kendo-angular-grid";
+
+import { ISurvey } from "../models/survey"
 
 @Injectable()
 export class AdminService { //extends BehaviorSubject<GridDataResult> {
@@ -24,121 +25,121 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    getStateTargets(): Observable<StateTarget[]> {
-        var fullUrl = this.baseUrl + '/api/admin/getStateTargets';
-        return this._http.get(fullUrl)
-            .catch(this.handleError)
-            .map(res => res.json() as StateTarget[]);
-    }
+    // getStateTargets(): Observable<StateTarget[]> {
+        // var fullUrl = this.baseUrl + '/api/admin/getStateTargets';
+        // return this._http.get(fullUrl)
+            // .catch(this.handleError)
+            // .map(res => res.json() as StateTarget[]);
+    // }
 
-    addTarget(model: StateTarget): Observable<any> {
-        var fullUrl = this.baseUrl + '/api/admin/addtarget';
+    // addTarget(model: StateTarget): Observable<any> {
+        // var fullUrl = this.baseUrl + '/api/admin/addtarget';
         
-        return this._http.post(fullUrl, model)
-            .catch(this.handleError)
-            .map(res => res.json());
-    }
+        // return this._http.post(fullUrl, model)
+            // .catch(this.handleError)
+            // .map(res => res.json());
+    // }
 
-    editTarget(model: StateTarget): Observable<any> {
-        var fullUrl = this.baseUrl + '/api/admin/updatetarget';
+    // editTarget(model: StateTarget): Observable<any> {
+        // var fullUrl = this.baseUrl + '/api/admin/updatetarget';
 
-        return this._http.post(fullUrl, model)
-            .map(res => res.json());
-    }
+        // return this._http.post(fullUrl, model)
+            // .map(res => res.json());
+    // }
 
-    getImportsList(): Observable<Import[]> {
-        var fullUrl = this.baseUrl + '/api/admin/getimports';
+    // getImportsList(): Observable<Import[]> {
+        // var fullUrl = this.baseUrl + '/api/admin/getimports';
 
-        return this._http.get(fullUrl)
-            .catch(this.handleError)
-            .map(res => res.json() as Import[]);
-    }
+        // return this._http.get(fullUrl)
+            // .catch(this.handleError)
+            // .map(res => res.json() as Import[]);
+    // }
 
-    uploadFile(payload: any): Observable<any[]> {
-        var fullUrl = this.baseUrl + "/api/admin/importfile";
-        let headers = new Headers();
-        headers.delete("Content-Type");
+    // uploadFile(payload: any): Observable<any[]> {
+        // var fullUrl = this.baseUrl + "/api/admin/importfile";
+        // let headers = new Headers();
+        // headers.delete("Content-Type");
 
-        headers.append("Accept", "application/json");
-        var options = new RequestOptions({
-            headers: headers,
-            url: fullUrl,
-            method: RequestMethod.Post,
-            body: JSON.stringify(payload)
-        });
+        // headers.append("Accept", "application/json");
+        // var options = new RequestOptions({
+            // headers: headers,
+            // url: fullUrl,
+            // method: RequestMethod.Post,
+            // body: JSON.stringify(payload)
+        // });
 
-        return this._http.post(fullUrl, options)
-            .map((res: Response) => {
-                let data = res.json();
-                return data;
-            })
-            .catch(this.handleError);
-    }
+        // return this._http.post(fullUrl, options)
+            // .map((res: Response) => {
+                // let data = res.json();
+                // return data;
+            // })
+            // .catch(this.handleError);
+    // }
 
-    deleteImport(id: number): Observable<any> {
-        var fullUrl = this.baseUrl + "/api/admin/deleteimport/" + id;
+    // deleteImport(id: number): Observable<any> {
+        // var fullUrl = this.baseUrl + "/api/admin/deleteimport/" + id;
 
-        return this._http.delete(fullUrl)
-            .map(res => res.json())
-            .catch(this.handleError);
-    }
+        // return this._http.delete(fullUrl)
+            // .map(res => res.json())
+            // .catch(this.handleError);
+    // }
 
-    getImportErrors(id: number): Observable<ImportError[]> {
-        var fullUrl = this.baseUrl + "/api/admin/getImportErrors" + "/" + id;
+    // getImportErrors(id: number): Observable<ImportError[]> {
+        // var fullUrl = this.baseUrl + "/api/admin/getImportErrors" + "/" + id;
 
-        return this._http
-            .get(fullUrl)
-            .map(res => res.json() as ImportError[])
-            .catch(this.handleError);
-    }
+        // return this._http
+            // .get(fullUrl)
+            // .map(res => res.json() as ImportError[])
+            // .catch(this.handleError);
+    // }
 
-    getImportRowDetails(id: number, rowId: number): Observable<ImportRowDetail> {
-        var fullUrl = this.baseUrl + "/api/admin/GetImportRowDetail" + "/" + id + "/" + rowId;
+    // getImportRowDetails(id: number, rowId: number): Observable<ImportRowDetail> {
+        // var fullUrl = this.baseUrl + "/api/admin/GetImportRowDetail" + "/" + id + "/" + rowId;
 
-        return this._http.get(fullUrl)
-            .catch(this.handleError)
-            .map(res => res.json() as ImportRowDetail);
-    }
+        // return this._http.get(fullUrl)
+            // .catch(this.handleError)
+            // .map(res => res.json() as ImportRowDetail);
+    // }
 
-    getDistricts(): Observable<agencySummary[]> {
-        var fullUrl = this.baseUrl + '/api/admin/getDistricts/';
+    // getDistricts(): Observable<agencySummary[]> {
+        // var fullUrl = this.baseUrl + '/api/admin/getDistricts/';
 
-        return this._http.get(fullUrl)
-            .map(res => res.json() as agencySummary[])
-            .catch(this.handleError);
-    }
+        // return this._http.get(fullUrl)
+            // .map(res => res.json() as agencySummary[])
+            // .catch(this.handleError);
+    // }
 
-    addDistrict(model: agencySummary): Observable<any> {
-        var fullUrl = this.baseUrl + '/api/admin/addDistrict';
+    // addDistrict(model: agencySummary): Observable<any> {
+        // var fullUrl = this.baseUrl + '/api/admin/addDistrict';
 
-        return this._http.post(fullUrl, model)
-            .catch(this.handleError)
-            .map(res => res.json());
-    }
+        // return this._http.post(fullUrl, model)
+            // .catch(this.handleError)
+            // .map(res => res.json());
+    // }
 
-    //query(state: any, id:number): void {
-    //    this.getUsers(id, state)
-    //        .subscribe(x => super.next(x));
-    //}
+    // //query(state: any, id:number): void {
+    // //    this.getUsers(id, state)
+    // //        .subscribe(x => super.next(x));
+    // //}
 
-    getUsers(agencyId: number): Observable<UserListItem[]>{
-        var fullUrl = this.baseUrl + '/api/admin/getUsersList/' + agencyId;
+    // getUsers(agencyId: number): Observable<UserListItem[]>{
+        // var fullUrl = this.baseUrl + '/api/admin/getUsersList/' + agencyId;
 
-        return this._http.get(fullUrl)
-            .catch(this.handleError)
-            .map(res => res.json());
-    }
+        // return this._http.get(fullUrl)
+            // .catch(this.handleError)
+            // .map(res => res.json());
+    // }
 
-    save(data: any, isNew?: boolean) {
+    // save(data: any, isNew?: boolean) {
 
-    }
+    // }
 
-    remove(userName: string): Observable<any> {
-        var fullUrl = this.baseUrl + '/api/admin/deleteUser/' + encodeURIComponent(userName);
-        return this._http.get(fullUrl)
-            .catch(this.handleError)
-            .map(res => res.json())
-    }
+    // remove(userName: string): Observable<any> {
+        // var fullUrl = this.baseUrl + '/api/admin/deleteUser/' + encodeURIComponent(userName);
+        // return this._http.get(fullUrl)
+            // .catch(this.handleError)
+            // .map(res => res.json())
+    // }
 
     // id: number
     // + '/' + id;

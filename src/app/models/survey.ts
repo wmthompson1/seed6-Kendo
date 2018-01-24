@@ -1,17 +1,17 @@
 ﻿export interface ISurvey {
-    Id: number;
-    Name: string;
-    Description: string;
-    SurveyTypeCode: string;
-    Instructions: string;
-    IsLocked: boolean;
-    CloseDate: string;
-    CreateDate: string;
-    CreatedBy: string;
-    UpdateDate: string;
-    UpdatedBy: string;
-    SchoolYear: string;
-    LeaverYear: string;
-    IsReported: boolean;
-    OpenDate: string;
+    id: number;
+    name: string;
+    description: string;
+    surveyTypeCode: string;
+    instructions: string;
+    isLocked: boolean;
+    closeDate: string;
+    createDate: string;
+    createdBy: string;
+    updateDate: string;
+    updatedBy: string;
+    schoolYear: string;
+    leaverYear: string;
+    isReported: boolean;
+    openDate: string;
 }

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { ActivatedRoute, Router } from "@angular/router";
-import { PublisherService } from '../services/publishers.service'
-import { Publisher } from '../models/publisher';
+//import { SurveyService } from '../services/surveys.service'
+import { SurveyService } from '../services/surveys.service'
+import { ISurvey } from '../models/survey';
 import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'form-edit',
   styleUrls: ['./form-edit.css'],
   templateUrl: './form-edit.html',
-  providers: [PublisherService]
+  providers: [SurveyService]
 })
 
 export class FormEdit implements OnInit {
@@ -18,7 +19,7 @@ export class FormEdit implements OnInit {
   model: any = {};
   loading = false;
   hasPrimaryLanguageError = false;
-  publishers: Publisher[] = [];
+  surveys: ISurvey[] = [];
   errorMessage: string;
 
   id: number;
@@ -27,11 +28,11 @@ export class FormEdit implements OnInit {
   constructor (
     private route: ActivatedRoute,  
     private router: Router,
-    private publisherService: PublisherService,
+    private surveyService: SurveyService,
 
   ) {
     this.id = this.route.snapshot.params['id']; 
-    this.getPublisher(this.id)
+    this.getSurvey(this.id)
   }
 
 
@@ -42,20 +43,20 @@ export class FormEdit implements OnInit {
   }
 
   	//get one and only one record
-      getPublisher(id: number) {
+      getSurvey(id: number) {
 
-        this.publisherService.getById(id)
+        this.surveyService.getById(id)
        .subscribe(model => {
            this.model = model;
            
        },
            error => this.errorMessage = <any>error);
     
-      } //getPublisher
+      } //getSurvey
 
 //   addNew() {
 //     this.loading = true;
-//     this.publisherService.create(this.model)
+//     this.surveyService.create(this.model)
 //         .subscribe(
 //             data => {
 //                this.router.navigate(['/login']);
@@ -67,7 +68,7 @@ export class FormEdit implements OnInit {
   
   editExisting() {
     this.loading = true;
-    this.publisherService.update(this.model)
+    this.surveyService.update(this.model)
         .subscribe(
             data => {
                this.router.navigate(['/login']);
