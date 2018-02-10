@@ -1,0 +1,30 @@
+﻿[
+  {
+    "SchoolAgencyId": 806,
+    "SchoolName": "Bainbridge High School",
+    "Progress": 100,
+    "ResponseRate": 0.917,
+    "ContactRate": 0.917,
+    "NotStartedCount": 0,
+    "StartedCount": 0,
+    "FinishedCount": 12,
+    "TotalCount": 12,
+    "DistrictProgress": 100,
+    "DistrictContactRate": 0.952,
+    "DistrictResponseRate": 0.952
+  },
+  {
+    "SchoolAgencyId": 807,
+    "SchoolName": "Bainbridge Special Education Services",
+    "Progress": 0,
+    "ResponseRate": 0.000,
+    "ContactRate": 0.000,
+    "NotStartedCount": 0,
+    "StartedCount": 0,
+    "FinishedCount": 0,
+    "TotalCount": 0,
+    "DistrictProgress": 100,
+    "DistrictContactRate": 0.952,
+    "DistrictResponseRate": 0.952
+  }
+]

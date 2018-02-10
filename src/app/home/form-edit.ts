@@ -71,11 +71,23 @@ export class FormEdit implements OnInit {
     this.surveyService.update(this.model)
         .subscribe(
             data => {
-               this.router.navigate(['/login']);
+               this.router.navigate(['/home']);
             },
             error => {
                 this.loading = false;
             });
     }
+
+    addExisting() {
+      this.loading = true;
+      this.surveyService.create(this.model)
+          .subscribe(
+              data => {
+                 this.router.navigate(['/home']);
+              },
+              error => {
+                  this.loading = false;
+              });
+      }
 
 }

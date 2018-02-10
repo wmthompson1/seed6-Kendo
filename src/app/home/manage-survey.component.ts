@@ -7,9 +7,9 @@ import { ISurvey } from "../models/survey"
 //import { ReportsService } from "../reports/reports.service";
 
 /**************************************************************************************
-PURPOSE:    
+Name: 
+manage-survey.component.ts
 
-SAMPLE EXEC:
 
 					DATE		COMMENT
 --------------------------------------------
@@ -20,7 +20,7 @@ William Thompson	01/10/2018	Created. Based on/copied from existing district list
 @Component({
     selector: "manage-survey",
     templateUrl: "../home/manage-survey.component.html",
-    styleUrls: ["../home/survey-render.component.css"],
+    styleUrls: ["../home/manage-survey.component.css"],
     providers: [AdminService],
     encapsulation: ViewEncapsulation.None
 })

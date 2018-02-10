@@ -3,7 +3,6 @@
             <div class="col-md-11">
                     <ol class="breadcrumb">
                         <li><a [routerLink]="['home']">Home</a></li>
-                        <!--<li><a [routerLink]="['/ps-landing']">Post-School Survey</a></li>-->
                         <li class="active">List</li>
                     </ol>
                 </div>
@@ -32,48 +31,27 @@
             <td>{{ survey.leaverYear}}</td>
             <td>{{survey.openDate | date: "yyyy-MM-dd"}}</td>
             <td>{{survey.closeDate | date: "yyyy-MM-dd"}}</td>
-
             <td>{{survey.schoolYear}}</td>
             <td>
-                <!-- <input type =  "checkbox" disabled name="isLocked" ngModel
-                {{survey.isLocked}}> -->
-
                 <input type="checkbox" name="tc"
                          disabled
                          [ngModel]="survey.isLocked" >
-
             </td>
-
-            <!-- <td> <a [routerLink]="['/formDelete',survey.id]">
-                {{survey.name}}
-                </a>
-            </td> -->
 
             <td> <a [routerLink]="['/formEdit',survey.id]">
                 Edit<span>&nbsp;</span><i class="fa fa-pencil"></i>
                 </a>
             </td>
-            <!-- <td><a [routerLink]="['/formDelete',survey.id]">
-                    <button type="button" 
-                    class="btn btn-sm btn-danger" >
-                        Delete
-	                </button>
-                </a>
-            </td> -->
             <td></td>
-
-         </tr>
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-         </tr>
-
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
          </ng-container>   
         </tbody>
        </table>
-
 </div>
 </div>

@@ -1,0 +1,60 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-11">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/mock-test']">Mock Test</a></li>
+                <li class="active">List</li>
+            </ol>
+        </div>
+
+        <div class="col-md-12" style="border-bottom: 1px solid black; border-top: 1px solid black; text-align: center; margin-bottom: 25px;">
+            <h2> Manage Surveys V2</h2>
+        </div>
+        <table class="table table-striped table-bordered table-hover" style="margin: auto;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Survey Name</th>
+                    <th>Leaver Year</th>
+                    <th>Open Date</th>
+                    <th>Close Date</th>
+
+                    <th>School Year</th>
+                    <th>Locked</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container>
+                    <tr *ngFor="let survey of surveys">
+                        <td class="text-muted">{{survey.id}}</td>
+                        <td>{{survey.name}}</td>
+                        <td>{{ survey.leaverYear}}</td>
+                        <td>{{survey.openDate | date: "yyyy-MM-dd"}}</td>
+                        <td>{{survey.closeDate | date: "yyyy-MM-dd"}}</td>
+                        <td>{{survey.schoolYear}}</td>
+                        <td>
+                            <input type="checkbox" name="tc"
+                                   disabled
+                                   [ngModel]="survey.isLocked">
+                        </td>
+
+                        <td>
+                            <a [routerLink]="['/surveyFormEdit',survey.id]">
+                                Edit<span>&nbsp;</span><i class="fa fa-pencil"></i>
+                            </a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 import { AppConfig } from '../app.config';
-import { ISurvey } from '../models/Survey';
+import { ISurvey } from '../App/admin/Survey';
 
 import { Observable } from 'rxjs/Observable';
 

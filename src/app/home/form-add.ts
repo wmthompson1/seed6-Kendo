@@ -45,7 +45,7 @@ export class FormAdd implements OnInit {
     this.surveyService.create(this.model)
         .subscribe(
             data => {
-               this.router.navigate(['/login']);
+               this.router.navigate(['/home']);
             },
             error => {
                 this.loading = false;
