@@ -68,6 +68,21 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
             '/api/admin/gensurveyQuestionDetails').map((response: Response) => response.json());
     }
 
+
+    surveyDetailCreate(survey: ISurvey) {
+        return this._http.post(this.baseUrl +
+	   // return this.http.post(this.config.apiUrl + 
+            '/api/admin/gensurveyQuestionDetail', survey);
+    }
+
+
+    surveyDetailGetById(id: number) {
+        return this._http.get(this.baseUrl +
+	   //return this.http.get(this.config.apiUrl +
+            '/api/admin/gensurveyQuestionDetail/' + id).map((response: Response) => response.json());
+    }
+
+
     // getStateTargets(): Observable<StateTarget[]> {
     //     var fullUrl = this.baseUrl + '/api/admin/getStateTargets';
     //     return this._http.get(fullUrl)

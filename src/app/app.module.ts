@@ -48,9 +48,8 @@ import { SurveyRenderComponent } from "./App/admin/survey-render.component";
 import { AdminService } from "./App/admin/admin.service";
 import { ManageSurveyFormEditComponent } from "./App/admin/manage-surveyFormEdit.component"
 import { SurveyGridComponent} from "./App/admin/survey-grid.component"
-
 import { SurveyLevel2Component } from "./App/admin/manage-surveys/manage-surveyLevel2.component"
- 
+//import { SurveyLevel2FormAddComponent} from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser 

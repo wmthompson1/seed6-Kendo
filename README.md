@@ -4,8 +4,8 @@ Credit is entirely to the creator of Seed1 and not me.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
-# Componenent Template
-*ManageSurveyFormAddComponent*
+# Component Template
+*SurveyLevel2FormAddComponent*
 
 
 ## Code scaffolding
@@ -17,19 +17,27 @@ manage-surveyFormAddDetail.ts
 
 ## Component Structure
 
-*@Component* 
-    selector: "manage-surveyAddDetail",
-    templateUrl: "../admin/manage-surveyFormEdit.component.html",
-    styleUrls: ["../admin/manage-surveyFormEdit.component.css"],
+_@Component_ 
+   * selector: "manage-surveyAddDetail",
+   * templateUrl: "../admin/manage-surveyFormAdd.component.html",
+   * styleUrls: ["../admin/manage-surveyFormAdd.component.css"],
 
 ## App Module
 
 App Module
-import { ManageSurveyFormEditComponent } from "./App/admin/manage-surveyFormEdit.component"	
+import { SurveyLevel2FormAddComponent} from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
+
+## Routing - component
+ { path: 'surveyDetailsAddForm', component: SurveyLevel2FormAddComponent },
+
+parent.super.surveyDetails
+this.surveyDetailsAddForm
+this.surveyDetailsEditForm
+this.surveyDetailsDeleteForm
 
 ## Routing Module
 
-import { ManageSurveyFormEditComponent } from "./App/admin/manage-surveyFormEdit.component"	
+import { ManageSurveyFormAddComponent } from "./App/admin/manage-surveyFormAdd.component"	
 
 ## API Route
 api route:  /api/admin/gensurveyQuestionDetailsAdd

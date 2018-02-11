@@ -110,7 +110,7 @@ export class SurveyGridComponent implements OnInit {
     addExisting (value) {
 
         this.model = value;
-        this.router.navigate(['/surveyFormAdd/', this.model.dataItem.id]);
+        this.router.navigate(['/surveyDetailsAddForm/', this.model.dataItem.id]);
 
     }
 

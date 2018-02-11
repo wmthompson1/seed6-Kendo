@@ -12,6 +12,7 @@ import { SurveyRenderComponent } from "./App/admin/survey-render.component";
 import { ManageSurveyFormEditComponent } from "./App/admin/manage-surveyFormEdit.component";
 import { SurveyGridComponent } from "./App/admin/survey-grid.component"
 import { SurveyLevel2Component } from "./App/admin/manage-surveys/manage-surveyLevel2.component"
+import { SurveyLevel2FormAddComponent} from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
 
 export const rootRouterConfig: Routes = [
 
@@ -25,6 +26,7 @@ export const rootRouterConfig: Routes = [
     { path: 'survey-render', component: SurveyGridComponent },
     { path: 'surveyFormEdit/:id', component: ManageSurveyFormEditComponent },
     { path: 'surveyDetails', component: SurveyLevel2Component },
+   // { path: 'surveyDetailsAddForm', component: SurveyLevel2FormAddComponent },
     
 
     {path: 'about', component: About},
