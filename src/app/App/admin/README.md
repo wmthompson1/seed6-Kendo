@@ -34,7 +34,18 @@ import { SurveyLevel2FormAddComponent } from "./App/admin/manage-surveys/manage-
 
 ## Routing Module
 
-import { SurveyLevel2FormAddComponent } from "./App/admin/manage-surveys/manage-surveyFormAddDetail"	
+* import { SurveyLevel2FormAddComponent } from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
+* routes
+*
+*    { path: 'home', component: Home },
+*    { path: 'master', component: Master },
+*    { path: 'formAdd', component: FormAdd },
+*    { path: 'formEdit/:id', component: FormEdit },
+*    { path: 'formDelete/:id', component: FormDelete },
+*    { path: 'survey-render', component: SurveyGridComponent },
+*    { path: 'surveyFormEdit/:id', component: ManageSurveyFormEditComponent },
+*    { path: 'surveyDetails', component: SurveyLevel2Component },
+*    { path: 'surveyDetails/:id', component: SurveyLevel2FormAddComponent },	
 
 ## API Route
 api route:  /api/admin/gensurveyQuestionDetail
