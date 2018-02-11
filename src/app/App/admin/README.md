@@ -6,26 +6,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Component Template
 *SurveyLevel2FormAddComponent*
-path
-C:\thompson\src\repos\seed6 - Kendo\src\app\App\admin\manage-surveys\manage-surveyFormAddDetail.ts
-..\..\admin\manage-surveys\manage-surveyFormAddDetail.ts
+_path_
+* C:\thompson\src\repos\seed6 - Kendo\src\app\App\admin\manage-surveys\manage-surveyFormAddDetail.ts
+* ..\..\admin\manage-surveys\manage-surveyFormAddDetail.ts
 
 
 ## Code scaffolding
 
 _folder_ manage-surveys:
 
-..\..\admin\manage-surveys\manage-surveyFormAddDetail.css
-..\..\admin\manage-surveys\manage-surveyFormAddDetail.html
-..\..\admin\manage-surveys\manage-surveyFormAddDetail.ts
+1. ..\..\admin\manage-surveys\manage-surveyFormAddDetail.css
+1. ..\..\admin\manage-surveys\manage-surveyFormAddDetail.html
+1. ..\..\admin\manage-surveys\manage-surveyFormAddDetail.ts
 
 
 ## Component Structure
 
 _@Component_ 
    * selector: "manage-surveyAddForm",
-    templateUrl: '../../admin/manage-surveys/manage-surveyFormAddDetail.html',
-    styleUrls: ["../../admin/manage-surveys/manage-surveyFormAddDetail.css"],
+   * templateUrl: '../../admin/manage-surveys/manage-surveyFormAddDetail.html',
+   * styleUrls: ["../../admin/manage-surveys/manage-surveyFormAddDetail.css"],
 
 ## App Module
 

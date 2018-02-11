@@ -49,14 +49,14 @@ import { AdminService } from "./App/admin/admin.service";
 import { ManageSurveyFormEditComponent } from "./App/admin/manage-surveyFormEdit.component"
 import { SurveyGridComponent} from "./App/admin/survey-grid.component"
 import { SurveyLevel2Component } from "./App/admin/manage-surveys/manage-surveyLevel2.component"
-//import { SurveyLevel2FormAddComponent} from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
+import { SurveyLevel2FormAddComponent} from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser 
         , RepoList, RepoDetail, Home, Master, FormAdd, FormEdit
         , FormDelete,ManageSurveyComponent,TsfFooterComponent
         , SurveyRenderComponent, ManageSurveyFormEditComponent,SurveyGridComponent
-        , SurveyLevel2Component ],
+        , SurveyLevel2Component, SurveyLevel2FormAddComponent ],
 
   imports     : [BrowserModule, FormsModule, HttpModule,BrowserAnimationsModule, GridModule
         , RouterModule.forRoot(rootRouterConfig)],

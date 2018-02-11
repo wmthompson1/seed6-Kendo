@@ -22,11 +22,11 @@ export const rootRouterConfig: Routes = [
     { path: 'formAdd', component: FormAdd },
     { path: 'formEdit/:id', component: FormEdit },
     { path: 'formDelete/:id', component: FormDelete },
-    //{ path: 'mock-test', component: SurveyGridComponent },
     { path: 'survey-render', component: SurveyGridComponent },
     { path: 'surveyFormEdit/:id', component: ManageSurveyFormEditComponent },
     { path: 'surveyDetails', component: SurveyLevel2Component },
-   // { path: 'surveyDetailsAddForm', component: SurveyLevel2FormAddComponent },
+    { path: 'surveyDetails/:id', component: SurveyLevel2FormAddComponent },
+
     
 
     {path: 'about', component: About},
