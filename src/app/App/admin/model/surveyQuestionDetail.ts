@@ -1,5 +1,5 @@
-export interface ISurveyDetail {
-    id: number,         
+export interface ISurveyQuestionDetail {
+       
     surveyId: number,
     surveyName: string,
     pageId: number,

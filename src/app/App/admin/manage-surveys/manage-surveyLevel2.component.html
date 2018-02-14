@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-                <li><a [routerLink]="['/home']">Home</a></li>
-                <li class="active">Manage Survey Details</li>
+                <li><a [routerLink]="['/survey-render']">Home</a></li>
+                <li class="active">Manage Survey Details ver 20180213.1337 </li>
             </ol>
         </div>
     </div>
@@ -28,26 +28,26 @@
            
             [height]="750">
 
-                <kendo-grid-column field="id" title="ID" width="50" [filterable]="false" >
+                <kendo-grid-column field="surveyId" title="ID" width="50" [filterable]="false" width = "120" >
 
                 </kendo-grid-column>
                 <kendo-grid-column field="surveyName" title="Survey Name" width="125">
                 </kendo-grid-column>
                 <kendo-grid-column field="pageName" title="Page Name" width="125">
                 </kendo-grid-column>
-                <kendo-grid-column field="questionNumberText" title="Question #" width="100">
+                <kendo-grid-column field="questionNumberText" title="Question #" width="150">
                 </kendo-grid-column>
                 <kendo-grid-column field="instructions" title="Instructions" width="175">
                 </kendo-grid-column>
-                <kendo-grid-column field="pageSortId" title="Page Sort Id" width="50">
+                <kendo-grid-column field="pageSortId" title="Page Sort Id" width="125">
 
                 </kendo-grid-column>
         
-                <kendo-grid-command-column title="">
+                <!-- <kendo-grid-command-column title="">
                 <ng-template kendoGridCellTemplate>
                     <div kendoGridAddCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>                        
                 </ng-template>
-                </kendo-grid-command-column>
+                </kendo-grid-command-column> -->
         
             </kendo-grid>
 

@@ -25,6 +25,10 @@
                                         <form name="form" (ngSubmit)="f.form.valid && addExisting(form)"
                                               #f="ngForm"
                                               novalidate>
+
+                                         
+
+
                                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted
                                                 && !name.valid }">
                                                 <label for="name">Survey Name</label>

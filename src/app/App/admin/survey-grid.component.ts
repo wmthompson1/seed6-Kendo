@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+﻿import { Component, OnInit, ViewEncapsulation, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GridComponent, GridDataResult, PageChangeEvent, DataStateChangeEvent } from "@progress/kendo-angular-grid";
 import { AdminService } from "../admin/admin.service";
@@ -12,6 +12,8 @@ import { GroupResult } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Rx';
 import { animate } from '@angular/animations';
 
+import { SurveyLevel2Component } from '../admin/manage-surveys/manage-surveyLevel2.component'
+
 /**************************************************************************************
 name:
 purpose:
@@ -24,39 +26,6 @@ William Thompson	01/10/2018	Created. Based on/copied from existing district list
 
 @Component({
     selector: "survey-render",
-    // template: `<kendo-grid
-    // [kendoGridBinding]="gridData"
-    // (edit)="editExisting($event)" 
-    // [pageSize]="10"
-    // [pageable]="true"
-    // [sortable]="true"
-    // [filterable]="true"
-    // [groupable]="true"
-    // [height]="510">
-    //     <kendo-grid-column field="id" title="ID" width="80">
-    //     </kendo-grid-column>
-    //     <kendo-grid-column field="name" title="Name" width="250">
-    //     </kendo-grid-column>
-    //     <kendo-grid-column field="description" title="Description" width="250">
-    //     </kendo-grid-column>
-    //     <kendo-grid-column field="surveyTypeCode" title="SurveyTypeCode" width="80">
-    //     </kendo-grid-column>
-    //     <kendo-grid-column field="instructions" title="Instructions" width="80">
-    //     </kendo-grid-column>
-    //     <kendo-grid-column field="isLocked" title="IsLocked" width="120">
-    //         <ng-template kendoGridCellTemplate let-dataItem>
-    //             <input type="checkbox" [checked]="dataItem.isLocked" disabled />
-    //         </ng-template>
-    //     </kendo-grid-column>
-
-    //     <kendo-grid-command-column title="">
-    //     <ng-template kendoGridCellTemplate>
-    //         <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-edit"></span></div>                        
-    //     </ng-template>
-    //     </kendo-grid-command-column>
-
-    // </kendo-grid>
-    // `,
    
     templateUrl: '../admin/survey-grid.component.html',
     styleUrls: ["../admin/survey-grid.component.css"],
@@ -80,7 +49,11 @@ export class SurveyGridComponent implements OnInit {
     private state: State = {
         skip: 0,
         take: 5
+
+    
     };
+
+    @ViewChild(SurveyLevel2Component) level2Component;
 
     constructor(private route: ActivatedRoute, private adminService: AdminService
         , private router: Router) {
@@ -103,15 +76,17 @@ export class SurveyGridComponent implements OnInit {
     editExisting (value) {
 
         this.model = value;
-        this.router.navigate(['/surveyFormEdit/', this.model.dataItem.id]);
-
+        //this.router.navigate(['/surveyFormEdit/', this.model.dataItem.id]);
+        this.router.navigate(['/surveyDetails/', this.model.dataItem.id]);
     }
 
     addExisting (value) {
 
         this.model = value;
-        this.router.navigate(['/surveyDetailsAddForm/', this.model.dataItem.id]);
+        //this.router.navigate(['/surveyFormEdit/', this.model.dataItem.id]);
+        this.router.navigate(['/surveyDetails/', this.model.dataItem.id]);
 
+ 
     }
 
     public groupChange(groups: GroupDescriptor[]): void {

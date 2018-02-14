@@ -37,6 +37,15 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
             '/api/admin/surveys').map((response: Response) => response.json());
     }
 
+    // The by id function may change
+
+    // surveyGetById(survey: ISurvey) {
+    //     return this._http.get(this.baseUrl +
+	//    //return this.http.get(this.config.apiUrl +
+    //         '/api/admin/surveys/' + survey.id).map((response: Response) => response.json());
+    // }
+
+
     surveyGetById(id: number) {
         return this._http.get(this.baseUrl +
 	   //return this.http.get(this.config.apiUrl +
@@ -46,7 +55,7 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
     surveyCreate(survey: ISurvey) {
         return this._http.post(this.baseUrl +
 	   // return this.http.post(this.config.apiUrl + 
-            '/api/admin/surveys', survey);
+            '/api/admin/surveys', survey.id);
     }
 
     surveyUpdate(survey: ISurvey) {
@@ -65,21 +74,23 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
     surveyDetailGetAll() {
         return this._http.get(this.baseUrl +
 	   //return this.http.get(this.config.apiUrl +
-            '/api/admin/gensurveyQuestionDetails').map((response: Response) => response.json());
+            '/api/admin/surveyQuestionDetails').map((response: Response) => response.json());
     }
 
 
-    surveyDetailCreate(survey: ISurvey) {
-        return this._http.post(this.baseUrl +
+    surveyDetailCreate(surveyDetail: ISurveyDetail) {
+       // console.log  ("api query: ", '/api/admin/surveyQuestionDetails/' + surveyDetail.surveyId )
+        return this._http.post(this.baseUrl 
 	   // return this.http.post(this.config.apiUrl + 
-            '/api/admin/gensurveyQuestionDetail', survey);
+            + '/api/admin/surveyQuestionDetails/' , surveyDetail.surveyName);
     }
 
 
     surveyDetailGetById(id: number) {
+        console.log ("calling surveyDetailGetById for ", id)
         return this._http.get(this.baseUrl +
 	   //return this.http.get(this.config.apiUrl +
-            '/api/admin/gensurveyQuestionDetail/' + id).map((response: Response) => response.json());
+            '/api/admin/surveyQuestionDetails/' + id).map((response: Response) => response.json());
     }
 
 

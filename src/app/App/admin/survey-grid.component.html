@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
                 <li><a [routerLink]="['/home']">Home</a></li>
-                <li class="active">Manage Surveys v20180209.1700</li>
+                <li class="active">Manage Surveys v20180209.1720</li>
             </ol>
         </div>
     </div>
@@ -15,10 +15,13 @@
     <div class="row">
         <div class="col-md-12">
             <!--(add)="addHandler($event)"-->
+            <!-- (edit)="editExisting($event)"  -->
+            <!-- note that add button ignores id for reasons unknown  -->
             <kendo-grid
             [kendoGridBinding]="gridData"
-            (edit)="editExisting($event)" 
-            (add)="addExisting($event)" 
+            
+            
+            (edit)="addExisting($event)" 
             [pageSize]="10"
             [pageable]="true"
             [sortable]="true"
@@ -29,44 +32,31 @@
            
             [height]="510">
 
-            <ng-template kendoGridGroupHeaderTemplatе let-emptyText = "Test">
-                    {{emptyText}}
-                        
-                </ng-template>
                 <kendo-grid-column field="id" title="ID" width="50" [filterable]="false" >
-                        <ng-template kendoGridGroupHeaderTemplatе let-emptyText = "Test">
-                            {{emptyText}}
-                                
-                        </ng-template>
                 </kendo-grid-column>
                 <kendo-grid-column field="name" title="Name" width="200">
                 </kendo-grid-column>
                 <kendo-grid-column field="description" title="Description" width="200">
                 </kendo-grid-column>
                 <kendo-grid-column field="surveyTypeCode" title="Survey Type" width="110">
-                        <ng-template kendoGridGroupHeaderTemplate let-value="value" >
-                                {{value}}
-                        </ng-template>
                 </kendo-grid-column>
                 <kendo-grid-column field="instructions" title="Instructions" width="25">
                 </kendo-grid-column>
                 <kendo-grid-column field="isLocked" title="Locked" width="75">
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <input type="checkbox" [checked]="dataItem.isLocked" disabled />
-                    </ng-template>
                 </kendo-grid-column>
         
                 <kendo-grid-command-column title="" width = 50>
                 <ng-template kendoGridCellTemplate>
-                    <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-edit"></span></div>                        
+                    <!-- <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-edit"></span></div>                         -->
+                    <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>     
                 </ng-template>
                 </kendo-grid-command-column>
 
-                <kendo-grid-command-column title=""  width = 50>
-                        <ng-template kendoGridCellTemplate>
-                            <div kendoGridAddCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>                        
-                        </ng-template>
-                </kendo-grid-command-column>
+                <!-- <kendo-grid-command-column title=""  width = 50>
+                <ng-template kendoGridCellTemplate>
+                    <div kendoGridAddCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>                        
+                </ng-template>
+                </kendo-grid-command-column> -->
 
         
             </kendo-grid>
