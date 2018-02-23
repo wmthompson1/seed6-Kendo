@@ -17,6 +17,7 @@
             <!--(add)="addHandler($event)"-->
             <!-- (edit)="editExisting($event)"  -->
             <!-- note that add button ignores id for reasons unknown  -->
+           
             <kendo-grid
             [kendoGridBinding]="gridData"
             
@@ -32,18 +33,18 @@
            
             [height]="510">
 
-                <kendo-grid-column field="id" title="ID" width="50" [filterable]="false" >
-                </kendo-grid-column>
-                <kendo-grid-column field="name" title="Name" width="200">
-                </kendo-grid-column>
-                <kendo-grid-column field="description" title="Description" width="200">
-                </kendo-grid-column>
-                <kendo-grid-column field="surveyTypeCode" title="Survey Type" width="110">
-                </kendo-grid-column>
-                <kendo-grid-column field="instructions" title="Instructions" width="25">
-                </kendo-grid-column>
-                <kendo-grid-column field="isLocked" title="Locked" width="75">
-                </kendo-grid-column>
+            <kendo-grid-column field="id" title="ID" width="25" [filterable]="false" >
+            </kendo-grid-column>
+            <kendo-grid-column field="name" title="Name" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="description" title="Description" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="surveyTypeCode" title="Survey Type" width="50">
+            </kendo-grid-column>
+            <kendo-grid-column field="instructions" title="Instructions" width="50">
+            </kendo-grid-column>
+            <kendo-grid-column field="isLocked" title="Locked" width="50">
+            </kendo-grid-column>
         
                 <kendo-grid-command-column title="" width = 50>
                 <ng-template kendoGridCellTemplate>
@@ -60,7 +61,7 @@
 
         
             </kendo-grid>
-
+ 
         </div>
     </div>
     <tsf-footer></tsf-footer>

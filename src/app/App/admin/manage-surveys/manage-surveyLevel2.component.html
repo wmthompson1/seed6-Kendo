@@ -17,7 +17,7 @@
             <!--(add)="addHandler($event)"-->
             <kendo-grid
             [kendoGridBinding]="gridData"
-            (edit)="editExisting($event)" 
+            (edit)="addExisting($event)" 
             [pageSize]="10"
             [pageable]="true"
             [sortable]="true"
@@ -25,29 +25,25 @@
             [groupable]="{ showFooter: false,
                            showHeader: true,
                            emptyText: 'To group by a column, drag the column header here.' }"
+
            
             [height]="750">
 
-                <kendo-grid-column field="surveyId" title="ID" width="50" [filterable]="false" width = "120" >
+                <kendo-grid-column field="surveyId" title="ID" width="50" [filterable]="false" width = "50" >
 
                 </kendo-grid-column>
-                <kendo-grid-column field="surveyName" title="Survey Name" width="125">
+                <kendo-grid-column field="surveyName" title="Survey Name" width="120">
                 </kendo-grid-column>
-                <kendo-grid-column field="pageName" title="Page Name" width="125">
+                <kendo-grid-column field="pageName" title="Page Name" width="120">
                 </kendo-grid-column>
-                <kendo-grid-column field="questionNumberText" title="Question #" width="150">
+                <kendo-grid-column field="questionNumberText" title="Question #" width="100">
                 </kendo-grid-column>
-                <kendo-grid-column field="instructions" title="Instructions" width="175">
+                <kendo-grid-column field="instructions" title="Instructions" width="140">
                 </kendo-grid-column>
                 <kendo-grid-column field="pageSortId" title="Page Sort Id" width="125">
 
                 </kendo-grid-column>
         
-                <!-- <kendo-grid-command-column title="">
-                <ng-template kendoGridCellTemplate>
-                    <div kendoGridAddCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>                        
-                </ng-template>
-                </kendo-grid-command-column> -->
         
             </kendo-grid>
 

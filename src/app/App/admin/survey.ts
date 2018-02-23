@@ -5,13 +5,13 @@
     surveyTypeCode: string;
     instructions: string;
     isLocked: boolean;
-    closeDate: string;
-    createDate: string;
-    createdBy: string;
-    updateDate: string;
-    updatedBy: string;
-    schoolYear: string;
-    leaverYear: string;
-    isReported: boolean;
-    openDate: string;
+    closeDate?: string;
+    createDate?: string;
+    createdBy?: string;
+    updateDate?: string;
+    updatedBy?: string;
+    schoolYear?: string;
+    leaverYear?: string;
+    isReported?: boolean;
+    openDate?: string;
 }

@@ -25,7 +25,7 @@ export const rootRouterConfig: Routes = [
     { path: 'survey-render', component: SurveyGridComponent },
     { path: 'surveyFormEdit/:id', component: ManageSurveyFormEditComponent },
     { path: 'surveyDetails/:id', component: SurveyLevel2Component },
-    { path: 'surveyDetails', component: SurveyLevel2Component },
+   // { path: 'surveyDetails', component: SurveyLevel2Component },
     //{ path: 'surveyDetails/:id', component: SurveyLevel2FormAddComponent },
 
     

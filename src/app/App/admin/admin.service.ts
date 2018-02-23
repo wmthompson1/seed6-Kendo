@@ -11,7 +11,7 @@ import { Observable, BehaviorSubject } from "rxjs/Rx";
 // import { GridDataResult } from "@progress/kendo-angular-grid";
 // import { UpdateDistrict } from "./model/updateDistrict";
 import { ISurvey } from './survey'
-import { ISurveyDetail } from '../admin/model/surveyDetail'
+import { ISurveyQuestionDetail } from '../admin/model/surveyQuestionDetail'
 //dev CORS William Thompson 2/9/2018
 import { AppConfig } from '../../app.config';
 
@@ -25,7 +25,10 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
         this.baseUrl = this.config.apiUrl
     }
 
+
+     surveyQuestionDetails: ISurveyQuestionDetail[] = [];
     baseUrl: string;
+    model: any = {};
         
     private handleError(error: Response) {
         return Observable.throw(error.json().error || 'Server error');
@@ -77,21 +80,54 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
             '/api/admin/surveyQuestionDetails').map((response: Response) => response.json());
     }
 
+    surveyDetailCreate(model: ISurvey): Observable<any> {
+        console.log("Calling surveyDetailCreate for: ", model.id)
+        var fullUrl = this.baseUrl + '/api/admin/surveyQuestionDetails';
 
-    surveyDetailCreate(surveyDetail: ISurveyDetail) {
-       // console.log  ("api query: ", '/api/admin/surveyQuestionDetails/' + surveyDetail.surveyId )
-        return this._http.post(this.baseUrl 
-	   // return this.http.post(this.config.apiUrl + 
-            + '/api/admin/surveyQuestionDetails/' , surveyDetail.surveyName);
+        return this._http.post(fullUrl, model )
+            .catch(this.handleError)
+            .map(res => res.json());
     }
 
 
+    // surveyDetailGetById(id: number) {
+    //     console.log ("calling surveyDetailGetById for ", id)
+    //     return this._http.get(this.baseUrl +
+	//    //return this.http.get(this.config.apiUrl +
+    //         '/api/admin/surveyQuestionDetails/' + id).map((response: Response) => response.json());
+    // }
+    
     surveyDetailGetById(id: number) {
         console.log ("calling surveyDetailGetById for ", id)
-        return this._http.get(this.baseUrl +
-	   //return this.http.get(this.config.apiUrl +
-            '/api/admin/surveyQuestionDetails/' + id).map((response: Response) => response.json());
+
+        var fullUrl = this.baseUrl + "/api/admin/surveyQuestionDetails" + "/" + id;
+
+        return this._http
+            .get(fullUrl)
+            .map(res => res.json() )
+            .catch(this.handleError);
     }
+
+    surveyDetailPostThenGetById(value: ISurvey): Observable<any>{
+    //post
+    this.model = value;
+
+    var fullUrl = this.baseUrl + '/api/admin/surveyQuestionDetails';
+
+        this._http.post(fullUrl, this.model )
+            .catch(this.handleError)
+            .map(res => res.json());    
+
+    //get
+        var fullUrl = this.baseUrl + "/api/admin/surveyQuestionDetails" + "/" + this.model.dataItem.id;
+
+     
+        return this._http
+            .get(fullUrl)
+            .map(res => res.json() as any)
+            .catch(this.handleError);
+    }
+
 
 
     // getStateTargets(): Observable<StateTarget[]> {
