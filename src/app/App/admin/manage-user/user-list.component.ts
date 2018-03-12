@@ -1,26 +1,27 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
-import { AuthService } from "../App/auth.service";
+﻿// C:\thompson\src\repos\seed6 - Kendo\src\app\App\admin\manage-user\user-list.component.ts
 
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { AuthService } from "../../auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GridComponent, GridDataResult, PageChangeEvent, DataStateChangeEvent } from "@progress/kendo-angular-grid";
-import { User } from "../App/User";
+import { User } from "../../User";
 import { SortDescriptor, orderBy, State, process } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Rx';
 import { animate } from '@angular/animations';
-import { Data } from "../App/admin/data";
-
+import { Data } from "../data";
 
 @Component({
     selector: "user-list",
-
-    templateUrl: "../home/home.html",
+    templateUrl: "../manage-user/user-list.component.html",
     providers: [AuthService, Data],
     encapsulation: ViewEncapsulation.None,
+    styleUrls: ["../manage-user/user-list.component.css"]
 
-    styleUrls: ["../home/home.css"]
+    // C:\thompson\src\repos\seed6 - Kendo\src\app\App\admin\manage-user\user-list.component.css
 })
 
-export class Home implements OnInit {
+
+export class UserListComponent implements OnInit {
     title: string = "Manage Users";
     gridData: GridDataResult;
     agencyId: number = 90;

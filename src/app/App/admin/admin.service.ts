@@ -1,4 +1,5 @@
-﻿import { Injectable } from "@angular/core";
+﻿// C:\thompson\src\repos\seed6 - Kendo\src\app\App\admin\admin.service.ts
+import { Injectable } from "@angular/core";
 import { Http, Headers, Response, RequestOptions, RequestMethod} from "@angular/http";
 import {Router} from "@angular/router";
 import { Observable, BehaviorSubject } from "rxjs/Rx";
@@ -11,9 +12,11 @@ import { Observable, BehaviorSubject } from "rxjs/Rx";
 // import { GridDataResult } from "@progress/kendo-angular-grid";
 // import { UpdateDistrict } from "./model/updateDistrict";
 import { ISurvey } from './survey'
-import { ISurveyQuestionDetail } from '../admin/model/surveyQuestionDetail'
+import { ISurveyQuestionDetail } from '../surveys/model/surveyQuestionDetail'
+import { ISurveyQuestion } from '../surveys/model/surveyQuestion'
 //dev CORS William Thompson 2/9/2018
 import { AppConfig } from '../../app.config';
+import { agencySummary } from "./model/agencySummary";
 
 
 
@@ -73,61 +76,46 @@ export class AdminService { //extends BehaviorSubject<GridDataResult> {
             + '/api/admin/surveys/' + survey.id);  //, survey);
     } 
 
-    //surveyDetail
+
+    // SurveyQuestionDetail
+
     surveyDetailGetAll() {
         return this._http.get(this.baseUrl +
-	   //return this.http.get(this.config.apiUrl +
-            '/api/admin/surveyQuestionDetails').map((response: Response) => response.json());
+            '/api/admin/surveyQuestionDetails').catch(this.handleError);
     }
 
-    surveyDetailCreate(model: ISurvey): Observable<any> {
-        console.log("Calling surveyDetailCreate for: ", model.id)
-        var fullUrl = this.baseUrl + '/api/admin/surveyQuestionDetails';
 
-        return this._http.post(fullUrl, model )
+    surveyDetailCreate(model: ISurvey): Observable<any> {
+        console.log("calling surveyDetailCreate for ", model.id)
+        var fullUrl = this.baseUrl + '/api/admin/surveyQuestionDetails';
+        return this._http.post(fullUrl, model)
+            .catch(this.handleError)            
+    }
+
+
+    surveyDetailGetById(id: number) {
+        console.log("calling surveyDetailGetById for ", id)
+        return this._http.get(this.baseUrl +
+            '/api/admin/surveyQuestionDetails/' + id).catch(this.handleError);
+    }
+
+    // SurveyQuestionDetail
+
+
+    getSurveyQuestion(id: number) {
+        console.log("getSurveyQuestion for ",id)
+        var fullUrl = this.baseUrl + '/api/admin/surveyQuestions/' + id;
+        return this._http.get(fullUrl)
             .catch(this.handleError)
             .map(res => res.json());
     }
 
+    getAgenciesCCTS(): Observable<agencySummary[]> {
+        var fullUrl = this.baseUrl + '/api/admin/getAgenciesCCTS/';
 
-    // surveyDetailGetById(id: number) {
-    //     console.log ("calling surveyDetailGetById for ", id)
-    //     return this._http.get(this.baseUrl +
-	//    //return this.http.get(this.config.apiUrl +
-    //         '/api/admin/surveyQuestionDetails/' + id).map((response: Response) => response.json());
-    // }
-    
-    surveyDetailGetById(id: number) {
-        console.log ("calling surveyDetailGetById for ", id)
-
-        var fullUrl = this.baseUrl + "/api/admin/surveyQuestionDetails" + "/" + id;
-
-        return this._http
-            .get(fullUrl)
-            .map(res => res.json() )
+        return this._http.get(fullUrl)            
             .catch(this.handleError);
     }
-
-    surveyDetailPostThenGetById(value: ISurvey): Observable<any>{
-    //post
-    this.model = value;
-
-    var fullUrl = this.baseUrl + '/api/admin/surveyQuestionDetails';
-
-        this._http.post(fullUrl, this.model )
-            .catch(this.handleError)
-            .map(res => res.json());    
-
-    //get
-        var fullUrl = this.baseUrl + "/api/admin/surveyQuestionDetails" + "/" + this.model.dataItem.id;
-
-     
-        return this._http
-            .get(fullUrl)
-            .map(res => res.json() as any)
-            .catch(this.handleError);
-    }
-
 
 
     // getStateTargets(): Observable<StateTarget[]> {

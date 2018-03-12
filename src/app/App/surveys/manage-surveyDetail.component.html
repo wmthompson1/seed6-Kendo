@@ -2,23 +2,19 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-                <li><a [routerLink]="['/home']">Home</a></li>
-                <li class="active">Manage Surveys v20180209.1707</li>
+                <li><a [routerLink]="['/survey-render']">Home</a></li>
+                <li class="active">Manage Survey Details v2024</li>
             </ol>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12"><h1>{{title}}</h1></div>
-        <!--<div class="col-md-3" style="margin-bottom: 20px;"><button class="btn btn-primary btn-sm" (click)="addUser()" style="float: right;">Add User</button></div>-->
     </div>
     
     <div class="row">
         <div class="col-md-12">
             <!--(add)="addHandler($event)"-->
-            <!-- (edit)="editExisting($event)"  -->
-            <!-- note that add button ignores id for reasons unknown  -->
-           
-            <kendo-grid [kendoGridBinding]="gridData"
+            <kendo-grid [kendoGridBinding]="gridData "
                         (edit)="addExisting($event)"
                         [pageSize]="10"
                         [pageable]="true"
@@ -27,19 +23,10 @@
                         [groupable]="{ showFooter: false,
                            showHeader: true,
                            emptyText: 'To group by a column, drag the column header here.' }"
-                        [height]="510">
+                        [height]="750">
 
-                <kendo-grid-column field="id" title="ID" width="25" [filterable]="false">
-                </kendo-grid-column>
-                <kendo-grid-column field="name" title="Name" width="100">
-                </kendo-grid-column>
-                <kendo-grid-column field="description" title="Description" width="100">
-                </kendo-grid-column>
-                <kendo-grid-column field="surveyTypeCode" title="Survey Type" width="50">
-                </kendo-grid-column>
-                <kendo-grid-column field="instructions" title="Instructions" width="50">
-                </kendo-grid-column>
-                <kendo-grid-column field="isLocked" title="Locked" width="50">
+                <kendo-grid-column field="surveyId" title="ID" width="50" [filterable]="false" width="50">
+
                 </kendo-grid-column>
 
                 <kendo-grid-command-column title="" width=50>
@@ -49,15 +36,29 @@
                     </ng-template>
                 </kendo-grid-command-column>
 
-                <!-- <kendo-grid-command-column title=""  width = 50>
+
+                <kendo-grid-column field="surveyName" title="Survey Name" width="50">
+                </kendo-grid-column>
+                <kendo-grid-column field="pageName" title="Page Name" width="75">
+                </kendo-grid-column>
+                <kendo-grid-column field="questionNumberText" title="Question #" width="50">
+                </kendo-grid-column>
+                <kendo-grid-column field="instructions" title="Instructions" width="100">
+                </kendo-grid-column>
+                <kendo-grid-column field="pageSortId" title="Page Sort Id" width="50">
+
+                </kendo-grid-column>
+
+
+
+                <!-- <kendo-grid-command-column title="">
                 <ng-template kendoGridCellTemplate>
                     <div kendoGridAddCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>
                 </ng-template>
                 </kendo-grid-command-column> -->
 
-
             </kendo-grid>
- 
+
         </div>
     </div>
     <tsf-footer></tsf-footer>

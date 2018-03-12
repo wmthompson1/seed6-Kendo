@@ -12,7 +12,7 @@ import { GroupDescriptor, DataResult, GroupResult } from '@progress/kendo-data-q
 import { Observable } from 'rxjs/Rx';
 import { animate } from '@angular/animations';
 
-import { ISurveyQuestionDetail } from './model/surveyQuestionDetail'
+import { ISurveyQuestionDetail } from '../surveys/model/surveyQuestionDetail'
 
 /**************************************************************************************
 name:
@@ -26,7 +26,7 @@ William Thompson    02/15/2018  post for surveyQuestionDetail
 
 @Component({
     selector: "survey-render",
-   
+  
     templateUrl: '../admin/survey-grid.component.html',
     styleUrls: ["../admin/survey-grid.component.css"],
     providers: [AdminService],
@@ -74,66 +74,49 @@ export class SurveyGridComponent implements OnInit {
 
     }
 
-    //v1
-    // addExisting(value) {
-    //    this.model = value;
-    //    //this.router.navigate(['/surveyFormEdit/', this.model.dataItem.id]);
-    //    this.router.navigate(['/surveyDetails/', this.model.dataItem.id]);
-    // }
+    addExisting(value) {
 
-
-    //v2
-    addExisting (value) {
-
-        this.model = value;
-
-        let message = {
-            id: this.model.dataItem.id,
-            name: this.model.dataItem.name,
-            description: this.model.dataItem.description,
-            surveyTypeCode: this.model.dataItem.surveyTypeCode,
-            instructions: this.model.dataItem.instructions,
-
-            isLocked: this.model.dataItem.isLocked,
-            closeDate: this.model.dataItem.closeDate,
-            createDate: this.model.dataItem.createDate,
-            createdBy: this.model.dataItem.createdBy,
-            updateDate: this.model.dataItem.updateDate,
-
-            updatedBy: this.model.dataItem.updatedBy,
-            schoolYear: this.model.dataItem.schoolYear,
-            leaverYear: this.model.dataItem.LeaverYear,
-            isReported: this.model.dataItem.isReported,
-            openDate: this.model.dataItem.openDate
-            };
-
-        this.adminService.surveyDetailCreate(message)
-        .subscribe(surveys => {
-            this.surveys = surveys;
+        //breaking change - I switched this to open surveyQuestions with Id instead of surveyId
+            this.model = value;
+            console.log("survey detail component parm:: ", this.model.dataItem.id)
             this.router.navigate(['/surveyDetails/', this.model.dataItem.id]);
-        },
-        error => this.errorMessage = <any>error)
-        //,      this.router.navigate(['/surveyDetails/', this.model.dataItem.id]);
-        //this.getLevel2(value)
-    }
-
-    getLevel2(value) {
-        this.model = value;
-
-        let surveyQuestionDetails = {
-            surveyId:  this.model.dataItem.id
-        }
-        //this.router.navigate(['/surveyDetails/', surveQuestionDetails.surveyId]);
-        this.router.navigate(['/surveyDetails/', surveyQuestionDetails.surveyId]);
-    }
-
-    public groupChange(groups: GroupDescriptor[]): void {
-        this.groups = groups;
-        this.getSurveys();
- 
-    }
-
-
+           // console.log("survey detail component parm:: ", this.model.dataItem.surveyId)
+           // this.router.navigate(['/surveyQuestions/', this.model.dataItem.surveyId]);
     
+        }
+
+
+    // addExisting(value) {
+
+    //     this.model = value;
+
+    //     let message = {
+    //         id: this.model.dataItem.id,
+    //         name: this.model.dataItem.name,
+    //         description: this.model.dataItem.description,
+    //         surveyTypeCode: this.model.dataItem.surveyTypeCode,
+    //         instructions: this.model.dataItem.instructions,
+
+    //         isLocked: this.model.dataItem.isLocked,
+    //         closeDate: this.model.dataItem.closeDate,
+    //         createDate: this.model.dataItem.createDate,
+    //         createdBy: this.model.dataItem.createdBy,
+    //         updateDate: this.model.dataItem.updateDate,
+
+    //         updatedBy: this.model.dataItem.updatedBy,
+    //         schoolYear: this.model.dataItem.schoolYear,
+    //         leaverYear: this.model.dataItem.LeaverYear,
+    //         isReported: this.model.dataItem.isReported,
+    //         openDate: this.model.dataItem.openDate
+    //         };
+
+    //     this.adminService.surveyDetailCreate(message)
+    //         .subscribe(surveys => {
+    //             this.surveys = surveys;
+    //             this.router.navigate(['/surveyQuestions/', this.model.dataItem.id]);
+    //         },
+    //         error => this.errorMessage = <any>error);
+
+    // }
 
 } //class 

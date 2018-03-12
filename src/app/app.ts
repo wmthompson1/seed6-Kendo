@@ -14,6 +14,9 @@ import { Component } from '@angular/core';
                     <li><a [routerLink]="['/formAdd']">Adds Form</a></li>
                     <li><a [routerLink]="['/mock-test']">Survey Grid</a></li>
                     <li><a [routerLink]="['/surveyDetails']">Survey Detail</a></li>
+                    <li><a [routerLink]="['/surveyQuestions']">Survey Questions</a></li>
+                    <li><a [routerLink]="['/user-list']">User List</a></li>
+                    
                                  
                 </ul>
             </div>

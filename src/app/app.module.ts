@@ -1,9 +1,8 @@
+// C:\thompson\src\repos\seed6 - Kendo\src\app\app.module.ts
 import {NgModule} from '@angular/core'
 import {RouterModule} from "@angular/router";
 import {rootRouterConfig} from "./app.routing";
 import {AppComponent} from "./app";
-
-
 
 //kendo
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,23 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 
 import "rxjs/Rx";
-//import { AppRouting } from "./app.routing";
-// import { AuthHttp } from "./auth.http";
-// import { AuthService } from "./auth.service";
+
 import { PsService } from "./App/post-school/ps.service";
-// import { AppComponent } from "./app.component";
-// import { LoginComponent } from "./login/login.component"
-// import { UserCreateComponent } from "./admin/manage-user/user-edit/user-create.component";
-// import { PageNotFoundComponent } from "./pagenotfound/page-not-found.component";
-// import { HomeComponent } from "./home.component";
-// import { TsfFooterComponent } from "./tsf-footer.component";
-// import { TSFFaqComponent } from "./faq/tsf-faq.component";
-// import { Indicator14DefinitionsComponent } from "./faq/indicator14-definitions.component";
+
 
 import {Github} from "./github/shared/github";
 import {FormsModule} from "@angular/forms";
 
-import {HttpModule} from "@angular/http";
+import { HttpModule } from "@angular/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
 import {About} from './about/about';
 import {Home} from './home/home';
 import {Master} from './home/master';
@@ -45,22 +37,40 @@ import { SurveyService } from './services/surveys.service'
 //import { SurveyRenderComponent } from './home/survey-render.component'
 import { TsfFooterComponent } from './home/tsf-footer.component'
 import { SurveyRenderComponent } from "./App/admin/survey-render.component";
+
 import { AdminService } from "./App/admin/admin.service";
 import { ManageSurveyFormEditComponent } from "./App/admin/manage-surveyFormEdit.component"
 import { SurveyGridComponent} from "./App/admin/survey-grid.component"
-import { SurveyLevel2Component } from "./App/admin/manage-surveys/manage-surveyLevel2.component"
-import { SurveyLevel2FormAddComponent} from "./App/admin/manage-surveys/manage-surveyFormAddDetail"
+
+import { SurveyDetailComponent } from "./App/surveys/manage-surveyDetail.component"
+import { SurveyQuestionComponent} from "./App/surveys/manage-surveyQuestion.component"
+
+// _ C:\thompson\src\repos\seed6 - Kendo\src\app\App\admin\manage-user\user-list.component.ts _   
+import { UserListComponent } from "./App/admin/manage-user/user-list.component"
+import { UserListResolver } from "./App/admin/user-list-resolver.service"
+import { SurveyResolver } from "./App/surveys/manage-surveyResolver.service"
+
+//C:\thompson\src\repos\seed6 - Kendo\src\app\app.module.ts
+
+//C:\thompson\src\repos\seed6 - Kendo\src\app\App\surveys\manage-surveyResolver.service.ts
+
+import { AuthService } from "./App/auth.service"
+// AuthHttp
+import { AuthHttp } from "./App/auth.http"
+
+// _ C:\thompson\src\repos\seed6 - Kendo\src\app\App\auth.service.ts _
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser 
         , RepoList, RepoDetail, Home, Master, FormAdd, FormEdit
         , FormDelete,ManageSurveyComponent,TsfFooterComponent
         , SurveyRenderComponent, ManageSurveyFormEditComponent,SurveyGridComponent
-        , SurveyLevel2Component, SurveyLevel2FormAddComponent ],
+        , SurveyDetailComponent, SurveyQuestionComponent, UserListComponent ],
 
   imports     : [BrowserModule, FormsModule, HttpModule,BrowserAnimationsModule, GridModule
+        , HttpClientModule
         , RouterModule.forRoot(rootRouterConfig)],
-  providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy}
+  providers   : [Github, UserListResolver, SurveyResolver, AdminService , AuthService, AuthHttp ,{provide: LocationStrategy, useClass: HashLocationStrategy}
 	,PublisherService, AppConfig ],
   bootstrap   : [AppComponent]
 })

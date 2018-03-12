@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { AdminService } from "../services/admin.service";
+import { AdminService } from "../App/admin/admin.service";
+
 import { ISurvey } from "../models/survey"
 //import { PsService } from "../Post-School/ps.service";
 //import { DistrictSummary } from "./DistrictSummary";
@@ -51,12 +52,12 @@ export class ManageSurveyComponent implements OnInit {
 
 
     getData(): void {
-        this.adminService
-            .getSurvey(this.id)
-            .subscribe(result => {
-                this.surveys = result;
-            },
-            error => this.errorMessage = <any>error);
+        // this.adminService
+        //     .surveyGetById(this.id)
+        //     .subscribe(result => {
+        //         this.surveys = result;
+        //     },
+        //     error => this.errorMessage = <any>error);
     }
     totalCount: number = this.surveys.length;
     statusValue: number = 0
@@ -66,7 +67,7 @@ export class ManageSurveyComponent implements OnInit {
     ngOnInit() {
 
         this.adminService
-            .getSurvey(this.id)
+            .surveyGetById(this.id)
             .subscribe(result => {
                 this.surveys = result;
             },
