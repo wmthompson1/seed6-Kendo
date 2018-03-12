@@ -86,37 +86,4 @@ export class SurveyGridComponent implements OnInit {
         }
 
 
-    // addExisting(value) {
-
-    //     this.model = value;
-
-    //     let message = {
-    //         id: this.model.dataItem.id,
-    //         name: this.model.dataItem.name,
-    //         description: this.model.dataItem.description,
-    //         surveyTypeCode: this.model.dataItem.surveyTypeCode,
-    //         instructions: this.model.dataItem.instructions,
-
-    //         isLocked: this.model.dataItem.isLocked,
-    //         closeDate: this.model.dataItem.closeDate,
-    //         createDate: this.model.dataItem.createDate,
-    //         createdBy: this.model.dataItem.createdBy,
-    //         updateDate: this.model.dataItem.updateDate,
-
-    //         updatedBy: this.model.dataItem.updatedBy,
-    //         schoolYear: this.model.dataItem.schoolYear,
-    //         leaverYear: this.model.dataItem.LeaverYear,
-    //         isReported: this.model.dataItem.isReported,
-    //         openDate: this.model.dataItem.openDate
-    //         };
-
-    //     this.adminService.surveyDetailCreate(message)
-    //         .subscribe(surveys => {
-    //             this.surveys = surveys;
-    //             this.router.navigate(['/surveyQuestions/', this.model.dataItem.id]);
-    //         },
-    //         error => this.errorMessage = <any>error);
-
-    // }
-
 } //class 

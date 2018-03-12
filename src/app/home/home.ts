@@ -7,14 +7,15 @@ import { User } from "../App/User";
 import { SortDescriptor, orderBy, State, process } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Rx';
 import { animate } from '@angular/animations';
-import { Data } from "../App/admin/data";
+//import { Data } from "../App/admin/data";
 
 
 @Component({
     selector: "user-list",
 
     templateUrl: "../home/home.html",
-    providers: [AuthService, Data],
+    // , Data
+    providers: [AuthService],
     encapsulation: ViewEncapsulation.None,
 
     styleUrls: ["../home/home.css"]
@@ -52,7 +53,8 @@ export class Home implements OnInit {
     public editDataItem: User;
     public isNew: boolean;
 
-    constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router, private data: Data) {
+    //, private data: Data
+    constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {
         //this.gridData = adminService;             
     }
 
